@@ -338,4 +338,3 @@ with tab3:
     st.write("Instruções rápidas: carregue seu CSV (ou gere exemplo), use a aba Buscador para pesquisa e a aba Análise para relatórios.")
 
 st.markdown("<div class='custom-footer'>© 2025 — Nicolly Soares Mota & Maria Eduarda de Bustamante Fontoura — Analisador de Sentenças STF/STJ</div>", unsafe_allow_html=True)
-streamlit run app.py
