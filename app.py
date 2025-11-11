@@ -113,16 +113,38 @@ def count_keywords_in_texts(df, col, keywords):
     return counts, mask
 
 def make_wordcloud_bytes(text_series, extra_stopwords=None, width=800, height=400, background="white"):
-    text = " ".join(text_series.fillna("").astype(str).tolist()).lower()
+    """Gera a nuvem de palavras, tratando casos vazios."""
+    text = " ".join(text_series.fillna("").astype(str).tolist()).lower().strip()
+    if not text or len(text.split()) == 0:
+        # cria uma imagem branca simples com aviso
+        from PIL import Image, ImageDraw, ImageFont
+        img = Image.new("RGB", (width, height), color=background)
+        draw = ImageDraw.Draw(img)
+        msg = "Sem palavras para gerar a nuvem"
+        draw.text((width // 10, height // 2 - 10), msg, fill="gray")
+        buf = BytesIO()
+        img.save(buf, format="PNG")
+        buf.seek(0)
+        return buf
+
     stopwords = set(STOPWORDS)
     if extra_stopwords:
         for s in extra_stopwords:
             stopwords.add(s.strip().lower())
-    wc = WordCloud(width=width, height=height, background_color=background, stopwords=stopwords, collocations=False).generate(text)
+
+    wc = WordCloud(
+        width=width,
+        height=height,
+        background_color=background,
+        stopwords=stopwords,
+        collocations=False
+    ).generate(text)
+
     buf = BytesIO()
     wc.to_image().save(buf, format="PNG")
     buf.seek(0)
     return buf
+
 
 def fig_to_png_bytes_matplotlib(fig):
     buf = BytesIO()
