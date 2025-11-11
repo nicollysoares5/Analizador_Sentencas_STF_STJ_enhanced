@@ -1,33 +1,20 @@
-# Analisador de Sentenças do STF/STJ (Versão 3)
+# ⚖️ Analisador de Sentenças STF/STJ (v4)
 
-Aplicativo Streamlit para busca e análise de ementas de decisões dos tribunais superiores (STF / STJ).
-Inclui: buscador com filtros, cards de resultados, painel analítico, nuvem de palavras e exportação de relatórios (CSV / PDF).
+Aplicação Streamlit para busca e análise de jurisprudências do STF e STJ.
 
-## Arquivos principais
-- `app.py` — aplicação Streamlit.
-- `requirements.txt` — dependências.
-- (opcional) `decisoes_stf_stj.csv` — CSV com decisões.
+## 🚀 Recursos
+- Busca universal (qualquer palavra/frase na ementa)
+- Filtros por tribunal, resultado e ano
+- Cards clicáveis com link direto para a decisão original
+- Gráficos interativos e nuvem de palavras
+- Exportação de CSV e PDF
+- Totalmente compatível com Streamlit Cloud
 
-## Como usar (sem terminal)
-1. No GitHub: crie um repositório (por exemplo `analisador-sentencas-stf-stj`).
-2. Clique em **Add file → Upload files** e envie `app.py`, `requirements.txt` e `README.md`.
-3. Acesse [https://share.streamlit.io](https://share.streamlit.io), clique em **New app**, selecione seu repositório, branch `main` e o arquivo `app.py`. Clique em **Deploy**.
-4. Pronto — seu app estará publicado com URL do Streamlit Cloud.
+## 🧠 Autoras
+- Nicolly Soares Mota  
+- Maria Eduarda de Bustamante Fontoura
 
-## Como usar localmente (opcional)
-1. Baixe/clone o repositório.
-2. (Recomendado) crie e ative um virtualenv:
-   - macOS/Linux:
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
-   - Windows (PowerShell):
-     ```powershell
-     python -m venv venv
-     .\venv\Scripts\Activate.ps1
-     ```
-3. Instale dependências:
-   ```bash
-   pip install -r requirements.txt
-
+## 📦 Instalação
+```bash
+pip install -r requirements.txt
+streamlit run app.py
